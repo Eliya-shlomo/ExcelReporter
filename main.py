@@ -1,5 +1,7 @@
 import pandas as pd
 import plotly.express as px
+import pdfkit
+
 
 # Load data from Google Sheets
 sheet_id = "1_VJj4-ciwH0FjxsyfNYaKPvd2b59YtP8zUhCf8C2-bU"
@@ -37,3 +39,6 @@ with open("full_sales_report.html", "w", encoding="utf-8") as f:
     </html>
     """)
 print("✅ full_sales_report.html was generated successfully.")
+
+pdfkit.from_file("full_sales_report.html", "sales_report.pdf")
+print("✅ sales_report.pdf was generated successfully.")
